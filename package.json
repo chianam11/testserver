@@ -3,14 +3,81 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./api/server.js"
+    "dev": "nodemon ./bin/www",
+    "start": "nodemon ./bin/www",
+    "postinstall": "npx sequelize-cli db:migrate",
+    "build": "npm run postinstall && npm run vercel-build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2"
+    "@vercel/postgres": "^0.9.0",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "http-errors": "~1.6.3",
+    "jade": "^1.9.2",
+    "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3",
+    "morgan": "~1.9.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "sequelize-cli": "^6.6.2"
+  },
+  "_moduleAliases": {
+    "@controllers": "./src/controllers",
+    "@core": "./src/core",
+    "@helpers": "./src/helpers",
+    "@middlewares": "./src/middlewares",
+    "@models": "./src/models",
+    "@passports": "./src/passports",
+    "@repositories": "./src/repositories",
+    "@routes": "./src/routes",
+    "@services": "./src/services",
+    "@transformers": "./src/transformers",
+    "@utils": "./src/utils",
+    "@config": "./config"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./"
+          ],
+          "alias": {
+            "@controllers": "./src/controllers",
+            "@core": "./src/core",
+            "@helpers": "./src/helpers",
+            "@middlewares": "./src/middlewares",
+            "@models": "./src/models",
+            "@passports": "./src/passports",
+            "@repositories": "./src/repositories",
+            "@routes": "./src/routes",
+            "@services": "./src/services",
+            "@transformers": "./src/transformers",
+            "@utils": "./src/utils",
+            "@config": "./config"
+          }
+        }
+      ]
+    ]
   }
 }
