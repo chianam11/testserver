@@ -12,7 +12,7 @@ module.exports = {
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false, // Nếu bạn gặp lỗi SSL, thử thêm dòng này
+        rejectUnauthorized: false,
       },
     },
     dialectModule: pg,
