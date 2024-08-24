@@ -8,11 +8,11 @@ module.exports = {
     database: process.env.POSTGRES_DATABASE,
     host: process.env.POSTGRES_HOST,
     dialect: 'postgres',
-    port: 5432,
+    port: process.env.DB_PORT || 5432,
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false,
+        rejectUnauthorized: false, // Thay đổi để làm việc với PostgreSQL với SSL
       },
     },
     dialectModule: pg,
@@ -23,7 +23,7 @@ module.exports = {
     database: process.env.POSTGRES_DATABASE,
     host: process.env.POSTGRES_HOST,
     dialect: 'postgres',
-    port: 5432,
+    port: process.env.DB_PORT || 5432,
     dialectOptions: {
       ssl: {
         require: true,
@@ -33,7 +33,7 @@ module.exports = {
     dialectModule: pg,
   },
   production: {
-    use_env_variable: 'POSTGRES_URL', // Sử dụng URL kết nối trực tiếp cho production
+    use_env_variable: 'POSTGRES_URL',
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
