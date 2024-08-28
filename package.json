@@ -1,10 +1,10 @@
 {
-  "name": "new-express-project",
-  "version": "1.0.0",
-  "main": "app.js",
+  "name": "proj-base",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "postinstall": "npx sequelize-cli db:migrate",
     "build": "npm run postinstall && npm run vercel-build"
   },

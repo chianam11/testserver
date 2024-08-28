@@ -1,4 +1,4 @@
-const UserRepository = require("@repositories/api/v1/auth/user.repository.js");
+const UserRepository = require("../../../../repositories/api/v1/auth/user.repository");
 const userRepository = new UserRepository();
 module.exports = {
     createUser: (data) => {
